@@ -11,6 +11,7 @@
         padding: 0px
       }
     </style>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
     <script>
 
@@ -45,11 +46,13 @@ function calcRoute() {
   var request = {
     origin: 'Lyon, France',
     destination: 'Lyon, France',
-    waypoints:[{location: 'Die, France'}, {location: 'Vassieux en Vercors, France'},{location: 'Pont en Royans, France'}],
+    waypoints:[{location: 'leoncel, France'},{location: 'Die, France'}, {location: 'Vassieux en Vercors, France'},{location: 'Pont en Royans, France'}],
     travelMode: google.maps.TravelMode.DRIVING
   };
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
+      // response = ?
+      console.log(response);
       directionsDisplay.setDirections(response);
     }
   });
@@ -63,6 +66,8 @@ function computeTotalDistance(result) {
   }
   total = total / 1000.0;
   document.getElementById('total').innerHTML = total + ' km';
+  $('#gpx').html(result);
+
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
@@ -73,6 +78,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div id="map-canvas" style="float:left;width:70%; height:100%"></div>
     <div id="directionsPanel" style="float:right;width:30%;height 100%">
     <p>Total Distance: <span id="total"></span></p>
+    <p> routes :</p> <div id="gpx"></div>
     </div>
   </body>
 </html>
