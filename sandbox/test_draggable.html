@@ -27,6 +27,15 @@
         min-height: 800px;
         float :left;
       }
+
+      .label_dir{
+        width: 100px;
+        display: inline-block;
+      }
+
+      ul {
+        list-style: none;
+      }
     </style>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
@@ -49,7 +58,7 @@ function initialize() {
   };
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   directionsDisplay.setMap(map);
-  directionsDisplay.setPanel(document.getElementById('directionsPanel'));
+  //directionsDisplay.setPanel(document.getElementById('directionsPanel'));
 
   google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
     computeTotalDistance(directionsDisplay.getDirections());
@@ -96,8 +105,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
     
     
     <div id='bradyPanel'>
-       Départ <input type="text" id='start_dir' />
-       Arrivée <input type="text" id="end_dir" />
+      <ul>
+        <li> <label class="label_dir" for="start_dir">Départ</label> <input type="text" id='start_dir' /></li>
+        <li> <label class="label_dir" for="end_dir">Arrivée</label> <input type="text" id="end_dir" /></li>
+      </ul>
+
+
        <div id="directionsPanel" >
           <p>Total Distance: <span id="total"></span></p>
           <p> routes :</p> <div id="gpx"></div>
