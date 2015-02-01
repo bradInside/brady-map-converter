@@ -13,7 +13,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAR1rCz_HL1wvjskRodkFdpSh7fLC2p1Vg"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAR1rCz_HL1wvjskRodkFdpSh7fLC2p1Vg&&libraries=places"></script>
     <script src="js/map_loader.js"></script>
 </head>
 <body>
@@ -29,7 +29,7 @@
                     <form  >
                            <div class="form-group" >
                                 <label for="exampleInputEmail1">Départ</label>
-                                    <input type="email" class="form-control " id="start_pt" placeholder="Point de départ du roadbook">
+                                    <input type="text" class="form-control " id="start_pt" placeholder="Point de départ du roadbook">
                             </div>
                             <div class="text-right">
                                     <button class="btn btn-default btn-sm" data-toggle="tooltip" data-placement="top" title="Ajouter une étape intermédiaire">
@@ -38,7 +38,7 @@
                             </div>
                             <div class="form-group" >
                                 <label for="exampleInputEmail1">Arrivée</label>
-                                    <input type="email" class="form-control " id="end_pt" placeholder="Arrivée du roadbook">
+                                    <input type="text" class="form-control " id="end_pt" placeholder="Arrivée du roadbook">
                             </div>
                             <div class="text-right">
                                 <button  class="btn btn-primary float-right btn-sm">Charger</button>
