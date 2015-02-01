@@ -1,12 +1,34 @@
 
 google.maps.event.addDomListener(window, 'load', startConverter );
 var bradymap = null;
+var nb_step =0;
 
 function startConverter(){
 	bradymap = new bradyMapLoader('map-canvas');
 	bradymap.initialize();
 	bradymap.setAutocomplete('start_pt');
 	bradymap.setAutocomplete('end_pt');
+
+	setNewStepListener();
+}
+
+function addNewStep(position){
+	position ++;
+	nb_step++;
+	var $newStep = $('#template_new_step').clone();
+	$newStep.find('label').text('Etape '+position);
+	$newStep.find('input').attr('id','step_'+position);
+	$newStep.find('button').attr('data-position',position);
+	console.log($newStep.html());
+	$('#additional_steps_container').append($newStep.html());
+	setNewStepListener();
+}
+
+function setNewStepListener(){
+	$('.add_step_button').unbind('click').click(function(e){
+		e.preventDefault();
+		addNewStep($(this).attr('data-position'));
+	});
 }
 
 
@@ -65,8 +87,8 @@ function bradyMapLoader(mapContainerId){
 
 
 	this.onDirectionsChanged = function(){
-		console.log('directionChanged');
-		//console.log(this.directionsDisplay.getDirections());
+		//console.log('directionChanged');
+		console.log(bradymap.directionsDisplay.getDirections());
 	}
 
 	this.onAutoCompleteChanged = function (inputId,autocomplete){
