@@ -49,7 +49,7 @@ function bradyMapLoader(mapContainerId){
 		this.directionsDisplay.setMap(this.map);
 		// listen to draggable events
 		google.maps.event.addListener(this.directionsDisplay, 'directions_changed', function() {
-				this.onDirectionsChanged();
+				bradymap.onDirectionsChanged();
   		});
 	}
 
@@ -70,7 +70,7 @@ function bradyMapLoader(mapContainerId){
 	}
 
 	this.onAutoCompleteChanged = function (inputId,autocomplete){
-		
+
 		if( $('#start_pt').val() != '' && $('#end_pt').val() != ''){
 			this.drawingRoute([$('#start_pt').val(), $('#end_pt').val()]);
 		}
@@ -87,6 +87,9 @@ function bradyMapLoader(mapContainerId){
 		  this.directionsService.route(request, function(response, status) {
 		    console.log('ok');
 		    if (status == google.maps.DirectionsStatus.OK) {
+		    	console.log(response);
+		    	console.log(bradymap);
+		    	console.log(bradymap.directionsDisplay);
 		      bradymap.directionsDisplay.setDirections(response);
 		    }
 		  });
