@@ -12,6 +12,10 @@ function startConverter(){
 	setNewStepListener();
 }
 
+
+/**
+	create a new step, need to use list 
+**/
 function addNewStep(position){
 	position ++;
 	nb_step++;
