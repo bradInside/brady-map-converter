@@ -1,3 +1,11 @@
+/**
+ *
+ * Use HTML5 Sortable jQuery Plugin
+ * http://farhadi.ir/projects/html5sortable
+ *
+ * Copyright 2012, Ali Farhadi
+ * Released under the MIT license.
+ */
 
 google.maps.event.addDomListener(window, 'load', startConverter );
 var bradymap = null;
@@ -10,6 +18,7 @@ function startConverter(){
 	bradymap.setAutocomplete('end_pt');
 
 	setNewStepListener();
+	setSortable();
 }
 
 
@@ -26,6 +35,7 @@ function addNewStep(position){
 	console.log($newStep.html());
 	$('#additional_steps_container').append($newStep.html());
 	setNewStepListener();
+	setSortable();
 }
 
 function setNewStepListener(){
@@ -33,6 +43,10 @@ function setNewStepListener(){
 		e.preventDefault();
 		addNewStep($(this).attr('data-position'));
 	});
+}
+
+function setSortable(){
+	$('.sortable').sortable();
 }
 
 

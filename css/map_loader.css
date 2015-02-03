@@ -1,3 +1,12 @@
+/*
+ Globaux
+*/
+
+ul{
+	list-style: none;
+	padding-left: 0;
+}
+
 #par_url_form {
 	margin-top: 100px;
 }
