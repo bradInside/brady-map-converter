@@ -25,15 +25,17 @@ function startConverter(){
 /**
 	create a new step, need to use list 
 **/
-function addNewStep(position){
-	position ++;
+function addNewStep($button){
 	nb_step++;
 	var $newStep = $('#template_new_step').clone();
-	$newStep.find('label').text('Etape '+position);
-	$newStep.find('input').attr('id','step_'+position);
-	$newStep.find('button').attr('data-position',position);
-	console.log($newStep.html());
-	$('#additional_steps_container').append($newStep.html());
+	$newStep.find('label').text('Etape '+nb_step);
+	$newStep.find('input').attr('id','step_'+nb_step);
+	$newStep.removeAttr('id').attr('draggable','true');
+	$newButton = $('#add_step_li_tp').clone();
+	
+	$newButton.removeAttr('id');
+	$($newStep).insertAfter($button.parents('.add_step_li'));
+	$($newButton).insertAfter($newStep);
 	setNewStepListener();
 	setSortable();
 }
@@ -41,7 +43,7 @@ function addNewStep(position){
 function setNewStepListener(){
 	$('.add_step_button').unbind('click').click(function(e){
 		e.preventDefault();
-		addNewStep($(this).attr('data-position'));
+		addNewStep($(this));
 	});
 }
 

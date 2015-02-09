@@ -1,6 +1,10 @@
 /*
  Globaux
 */
+.add_step_li {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
 ul{
 	list-style: none;

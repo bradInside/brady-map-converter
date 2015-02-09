@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/map_loader.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-ui.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAR1rCz_HL1wvjskRodkFdpSh7fLC2p1Vg&&libraries=places"></script>
     <script src="js/jquery.sortable.min.js"></script>
@@ -34,13 +35,16 @@
                         <label for="start_pt">Départ</label>
                         <input type="text" class="form-control " id="start_pt" placeholder="Point de départ du roadbook">
                     </div>
-                    <div class="text-right">
-                        <button class="btn btn-default btn-sm add_step_button" data-toggle="tooltip" data-placement="top" data-position="0"
-                                title="Ajouter une étape intermédiaire">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                        </button>
-                    </div>
+                    
                 </li>
+                <li id="add_step_li_tp" class="unsortable-li add_step_li">
+                    <div class="text-right">
+                            <button class="btn btn-default btn-sm add_step_button" data-toggle="tooltip" data-placement="top" data-position="0"
+                                    title="Ajouter une étape intermédiaire">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </button>
+                        </div>
+                    </li>
                 <li>
                     <div class="form-group">
                         <label for="end_pt">Arrivée</label>
@@ -65,19 +69,14 @@
 </div>
 </div>
 <div id="templates" style="display:none;">
-    <ul id="template_new_step">
-        <li>
+    <ul >
+        <li id="template_new_step">
             <div class="form-group">
 
                 <input type="text" class="form-control " placeholder="Adresse de l'étape intermédiaire">
-
-                <div class="text-right">
-                    <button class="btn btn-default btn-sm add_step_button" data-toggle="tooltip" data-placement="top"
-                            title="Ajouter une étape intermédiaire">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    </button>
-                </div>
+                
         </li>
+   
     </ul>
     </div>
 </div>
