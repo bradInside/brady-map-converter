@@ -27,17 +27,21 @@ function startConverter(){
 **/
 function addNewStep($button){
 	nb_step++;
+	var id = 'step_'+nb_step;
+
+	// creating the new input
 	var $newStep = $('#template_new_step').clone();
 	$newStep.find('label').text('Etape '+nb_step);
 	$newStep.find('input').attr('id','step_'+nb_step);
 	$newStep.removeAttr('id').attr('draggable','true');
+	// creating the new button
 	$newButton = $('#add_step_li_tp').clone();
-	
 	$newButton.removeAttr('id');
 	$($newStep).insertAfter($button.parents('.add_step_li'));
 	$($newButton).insertAfter($newStep);
 	setNewStepListener();
 	setSortable();
+	bradymap.setAutocomplete(id);
 }
 
 function setNewStepListener(){
@@ -121,9 +125,21 @@ function bradyMapLoader(mapContainerId){
 	this.drawingRoute = function(points){
 		var start = points[0];
 		var end = points[points.length-1];
+		var waypts = [];
+
+		$('.waypt').each(function(){
+			var $inp = $(this).find('input');
+			if($inp.val() != ''){
+				waypts.push({
+					location: $inp.val()
+				});
+			}
+		});
 		  var request = {
 		      origin:start,
 		      destination:end,
+		      waypoints: waypts,
+      		  optimizeWaypoints: true,
 		      travelMode: google.maps.TravelMode.DRIVING
 		  };
 		  this.directionsService.route(request, function(response, status) {
