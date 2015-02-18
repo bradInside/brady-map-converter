@@ -6,6 +6,13 @@
 	margin-bottom: 10px;
 }
 
+.exports {
+	border: 1px solid black;
+	min-height: 150px;
+	overflow: auto;
+	width: 100%;
+}
+
 ul{
 	list-style: none;
 	padding-left: 0;

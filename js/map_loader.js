@@ -55,6 +55,13 @@ function setSortable(){
 	$('.sortable').sortable();
 }
 
+function setBaseListeners(){
+	$('#generateGpx').unbind('click').click(function(){
+
+	});
+
+}
+
 
 
 function bradyMapLoader(mapContainerId){
@@ -84,6 +91,8 @@ function bradyMapLoader(mapContainerId){
 	// store autocompletes services
 	this.autocompletes = [];
 
+	this.currentDirection = null;
+
 
 	// initialize the converter
 	this.initialize = function (){
@@ -111,8 +120,9 @@ function bradyMapLoader(mapContainerId){
 
 
 	this.onDirectionsChanged = function(){
-		//console.log('directionChanged');
+		console.log('directionChanged');
 		console.log(bradymap.directionsDisplay.getDirections());
+		this.currentDirection = bradymap.directionsDisplay.getDirections();
 	}
 
 	this.onAutoCompleteChanged = function (inputId,autocomplete){
@@ -143,13 +153,14 @@ function bradyMapLoader(mapContainerId){
 		      travelMode: google.maps.TravelMode.DRIVING
 		  };
 		  this.directionsService.route(request, function(response, status) {
-		    console.log('ok');
+		    //console.log('ok');
 		    if (status == google.maps.DirectionsStatus.OK) {
-		    	console.log(response);
-		    	console.log(bradymap);
-		    	console.log(bradymap.directionsDisplay);
 		      bradymap.directionsDisplay.setDirections(response);
 		    }
 		  });
+	}
+
+	this.generateGpx = function(){
+
 	}
 }
