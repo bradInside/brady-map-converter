@@ -18,6 +18,7 @@ function startConverter(){
 	bradymap.setAutocomplete('end_pt');
 
 	setNewStepListener();
+	setBaseListeners();
 	setSortable();
 }
 
@@ -57,7 +58,8 @@ function setSortable(){
 
 function setBaseListeners(){
 	$('#generateGpx').unbind('click').click(function(){
-
+		bradymap.generateGpx();
+		return false;
 	});
 
 }
@@ -161,6 +163,12 @@ function bradyMapLoader(mapContainerId){
 	}
 
 	this.generateGpx = function(){
-
+		var $root = $('<XMLDocument />');
+		$root.append(
+			$('<metadata />').append(
+				$('<name></name>').text('trajet xxxx')
+			)
+		);
+		$('div.exports').text($root.html());
 	}
 }
