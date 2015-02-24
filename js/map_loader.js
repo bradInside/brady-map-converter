@@ -10,12 +10,22 @@
 google.maps.event.addDomListener(window, 'load', startConverter );
 var bradymap = null;
 var nb_step =0;
+var MODE_TEST = "MODE_TEST";
+var MODE_NORMAL = "MODE_NORMAL";
+var mode = MODE_TEST;
 
 function startConverter(){
-	bradymap = new bradyMapLoader('map-canvas');
-	bradymap.initialize();
-	bradymap.setAutocomplete('start_pt');
-	bradymap.setAutocomplete('end_pt');
+	
+		bradymap = new bradyMapLoader('map-canvas');
+		if( mode  != MODE_TEST){
+			bradymap.initialize();
+		}else {
+			$('.sidebar').hide();
+			bradymap.generateGpx();
+		}
+		bradymap.setAutocomplete('start_pt');
+		bradymap.setAutocomplete('end_pt');
+	
 
 	setNewStepListener();
 	setBaseListeners();
@@ -169,6 +179,7 @@ function bradyMapLoader(mapContainerId){
 				$('<name></name>').text('trajet xxxx')
 			)
 		);
-		$('div.exports').text($root.html());
+		$('div.exports textarea').text($root.html());
+		$('div.exports textarea').format({method: 'xml'});
 	}
 }
