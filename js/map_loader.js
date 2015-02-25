@@ -12,7 +12,8 @@ var bradymap = null;
 var nb_step =0;
 var MODE_TEST = "MODE_TEST";
 var MODE_NORMAL = "MODE_NORMAL";
-var mode = MODE_TEST;
+var auto_generation = true;
+var mode = MODE_NORMAL;
 
 function startConverter(){
 	
@@ -21,6 +22,8 @@ function startConverter(){
 			bradymap.initialize();
 		}else {
 			$('.sidebar').hide();
+		}
+		if(auto_generation){
 			bradymap.generateGpx();
 		}
 		bradymap.setAutocomplete('start_pt');
@@ -173,13 +176,39 @@ function bradyMapLoader(mapContainerId){
 	}
 
 	this.generateGpx = function(){
-		var $root = $('<XMLDocument />');
-		$root.append(
-			$('<metadata />').append(
-				$('<name></name>').text('trajet xxxx')
-			)
-		);
-		$('div.exports textarea').text($root.html());
+
+		//var overviewPath = this.currentDirection.routes[0].overview_path;
+		
+		var $trkseg = '<trkseg>';
+		if(this.currentDirection != null )
+		{
+			var routes = this.currentDirection.routes;
+			if(routes.length > 0){
+				var overview_path = routes[0].overview_path;
+				var lg = overview_path.length
+				for (i=0;i<lg;i++){
+					if(i%2 ==  0 || i == lg-1){
+						$trkseg +='<trkpt lat="'+ overview_path[i].lat() +
+						 '" lon="' +
+						  overview_path[i].lng() + '" ></trkpt>';
+					}
+				}
+			}
+		}
+		$trkseg += '</trkseg>';
+		var xmlBase = '<gpx version="1.1" creator="bradyMapCreator"><trk><name>BradyMapCreator Gpx </name>'+$trkseg+'</trk></gpx>'; 
+		var xmldoc  = jQuery.parseXML(xmlBase);
+		this.xmldoc = $(xmldoc);
+		console.log(this.xmldoc.html());
+		this.xmlBase = xmlBase;
+		//var test = $('div').append(xmldoc).html();
+		//$('div.exports textarea').text('').text(this.xmldoc.html());
+		//var temp = '<?xml encoding="UTF-8" ?>\n' + $('div.exports textarea').val();
+		//$('div.exports textarea').val(temp);
+		//$('div.exports textarea').format({method: 'xml'});
+		$('div.exports pre').text('<?xml encoding="UTF-8" ?>\n'+xmlBase);
+		$('div.exports textarea').val($('div.exports pre').text());
 		$('div.exports textarea').format({method: 'xml'});
+		
 	}
 }

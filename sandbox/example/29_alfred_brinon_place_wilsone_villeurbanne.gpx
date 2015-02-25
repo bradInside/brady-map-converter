@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gpx version="1.1"
+     creator="GMapToGPX 6.4k - http://www.elsewhere.org/GMapToGPX/"
+     xmlns="http://www.topografix.com/GPX/1/1"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+   <trk>
+      <name>Google Driving Directions Track</name>
+      <trkseg>
+      <trkpt lat="45.77802" lon="4.89477"><cmt>Prendre la direction ouest sur Rue Alfred Brinon vers Rue du 8 Mai 1945</cmt></trkpt>
+      <trkpt lat="45.77797" lon="4.89417"></trkpt>
+      <trkpt lat="45.77799" lon="4.89384"><cmt>Rue Alfred Brinon tourne à droite et devient Rue du 8 Mai 1945</cmt></trkpt>
+      <trkpt lat="45.77815" lon="4.89382"></trkpt>
+      <trkpt lat="45.77814" lon="4.89351"></trkpt>
+      <trkpt lat="45.7781" lon="4.89347"></trkpt>
+      <trkpt lat="45.77775" lon="4.89352"></trkpt>
+      <trkpt lat="45.77766" lon="4.8922"><cmt>Tourner à droite pour rester sur Rue du 8 Mai 1945</cmt></trkpt>
+      <trkpt lat="45.78156" lon="4.89124"></trkpt>
+      <trkpt lat="45.78206" lon="4.89102"></trkpt>
+      <trkpt lat="45.78244" lon="4.89069"></trkpt>
+      <trkpt lat="45.78259" lon="4.89069"><cmt>Au rond-point, prendre la 4e sortie sur Avenue Roger Salengro</cmt></trkpt>
+      <trkpt lat="45.78269" lon="4.89079"></trkpt>
+      <trkpt lat="45.78281" lon="4.89076"></trkpt>
+      <trkpt lat="45.78289" lon="4.8906"></trkpt>
+      <trkpt lat="45.78288" lon="4.89046"></trkpt>
+      <trkpt lat="45.7828" lon="4.89034"></trkpt>
+      <trkpt lat="45.78141" lon="4.88601"></trkpt>
+      <trkpt lat="45.78104" lon="4.88442"></trkpt>
+      <trkpt lat="45.78102" lon="4.88423"></trkpt>
+      <trkpt lat="45.77926" lon="4.88106"></trkpt>
+      <trkpt lat="45.77704" lon="4.87687"></trkpt>
+      <trkpt lat="45.7768" lon="4.87632"></trkpt>
+      <trkpt lat="45.7767" lon="4.87584"></trkpt>
+      <trkpt lat="45.7766" lon="4.87434"></trkpt>
+      <trkpt lat="45.77625" lon="4.87209"></trkpt>
+      <trkpt lat="45.77613" lon="4.87105"></trkpt>
+      <trkpt lat="45.77539" lon="4.86999"><cmt>Prendre à gauche sur Rue Gervais Bussière</cmt></trkpt>
+      <trkpt lat="45.77533" lon="4.87007"></trkpt>
+      <trkpt lat="45.77518" lon="4.87007"></trkpt>
+      <trkpt lat="45.77359" lon="4.8698"><cmt>Prendre à droite sur Rue de Milan</cmt></trkpt>
+      <trkpt lat="45.77379" lon="4.869"><cmt>Continuer sur Place Wilson</cmt></trkpt>
+      <trkpt lat="45.77395" lon="4.86837"><cmt>Place Wilson</cmt></trkpt>
+      </trkseg>
+   </trk>
+</gpx>
